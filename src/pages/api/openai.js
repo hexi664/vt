@@ -129,11 +129,11 @@ function parseStepsFromResponse(content) {
         "保存您当前正在进行的工作",
         "点击Windows开始菜单",
         "点击电源按钮",
-        "按住Shift键的同时点击"重启"",
-        "在出现的高级启动选项中，选择"疑难解答"",
-        "选择"高级选项"",
-        "选择"UEFI固件设置"",
-        "点击"重启""
+        "按住Shift键的同时点击\"重启\"",
+        "在出现的高级启动选项中，选择\"疑难解答\"",
+        "选择\"高级选项\"",
+        "选择\"UEFI固件设置\"",
+        "点击\"重启\""
       ]
     },
     {
@@ -141,26 +141,26 @@ function parseStepsFromResponse(content) {
       title: "在BIOS中找到虚拟化设置",
       details: [
         "进入BIOS后，使用方向键导航",
-        "找到"Advanced"或"高级"选项卡",
-        "寻找"CPU Configuration"或"处理器配置"选项",
-        "找到"Virtualization Technology"或"虚拟化技术"选项"
+        "找到\"Advanced\"或\"高级\"选项卡",
+        "寻找\"CPU Configuration\"或\"处理器配置\"选项",
+        "找到\"Virtualization Technology\"或\"虚拟化技术\"选项"
       ]
     },
     {
       number: 3,
       title: "启用虚拟化技术",
       details: [
-        "选择"Virtualization Technology"或"虚拟化技术"选项",
-        "将其设置为"Enabled"或"启用"",
-        "有些电脑可能将此选项命名为"Intel VT-x"、"AMD-V"或"SVM Mode""
+        "选择\"Virtualization Technology\"或\"虚拟化技术\"选项",
+        "将其设置为\"Enabled\"或\"启用\"",
+        "有些电脑可能将此选项命名为\"Intel VT-x\"、\"AMD-V\"或\"SVM Mode\""
       ]
     },
     {
       number: 4,
       title: "保存设置并退出",
       details: [
-        "按F10键或找到"Save & Exit"或"保存并退出"选项",
-        "选择"Yes"或"是"确认保存更改",
+        "按F10键或找到\"Save & Exit\"或\"保存并退出\"选项",
+        "选择\"Yes\"或\"是\"确认保存更改",
         "电脑将自动重启"
       ]
     },
@@ -169,9 +169,9 @@ function parseStepsFromResponse(content) {
       title: "验证虚拟化技术是否已启用",
       details: [
         "电脑重启后，按Win+R打开运行对话框",
-        "输入"msinfo32"并按回车",
-        "在系统信息窗口中，找到"系统摘要"",
-        "查找"虚拟化已启用"项，如果显示"是"，则表示虚拟化技术已成功启用"
+        "输入\"msinfo32\"并按回车",
+        "在系统信息窗口中，找到\"系统摘要\"",
+        "查找\"虚拟化已启用\"项，如果显示\"是\"，则表示虚拟化技术已成功启用"
       ]
     }
   ];
