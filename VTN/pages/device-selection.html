@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VT开启助手 - 选择设备</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="time">14:31</div>
+        <div class="icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+    
+    <!-- 导航栏 -->
+    <div class="nav-bar">
+        <div><i class="fas fa-arrow-left" onclick="window.location.href='welcome.html'"></i></div>
+        <div class="title">选择您的设备</div>
+        <div><i class="fas fa-search"></i></div>
+    </div>
+    
+    <!-- 主内容 -->
+    <div class="content">
+        <div class="card">
+            <p>请选择您的电脑品牌、型号和主板类型，我们将为您提供相应的VT开启指南。</p>
+        </div>
+        
+        <!-- 品牌选择区域 -->
+        <div id="brand-selection">
+            <h3 style="margin: 20px 0 10px 0; font-size: 16px; color: #8e8e93;">电脑品牌</h3>
+            
+            <div class="device-option" onclick="showModels('lenovo-models')">
+                <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="联想">
+                <div class="device-info">
+                    <div class="device-name">联想 ThinkPad/IdeaPad</div>
+                    <div class="device-desc">包括ThinkPad、IdeaPad等系列笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showModels('dell-models')">
+                <img src="https://images.unsplash.com/photo-1551645120-d70bfe84c826?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="戴尔">
+                <div class="device-info">
+                    <div class="device-name">戴尔 Dell</div>
+                    <div class="device-desc">包括XPS、Inspiron、Latitude等系列</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showModels('hp-models')">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca4?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="惠普">
+                <div class="device-info">
+                    <div class="device-name">惠普 HP</div>
+                    <div class="device-desc">包括Spectre、Pavilion、EliteBook等系列</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showModels('asus-models')">
+                <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="华硕">
+                <div class="device-info">
+                    <div class="device-name">华硕 ASUS</div>
+                    <div class="device-desc">包括ZenBook、VivoBook、ROG等系列</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showModels('other-models')">
+                <img src="https://images.unsplash.com/photo-1598986646512-9330bcc4c0dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="其他品牌">
+                <div class="device-info">
+                    <div class="device-name">其他品牌</div>
+                    <div class="device-desc">宏碁、微星、技嘉、神舟等其他品牌</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button class="btn btn-secondary" onclick="window.location.href='camera-recognition.html'">
+                    <i class="fas fa-camera"></i> 拍照自动识别设备
+                </button>
+            </div>
+        </div>
+        
+        <!-- 联想型号选择（默认隐藏） -->
+        <div id="lenovo-models" class="model-selection" style="display: none;">
+            <div class="nav-action" style="display: flex; align-items: center; margin: 15px 0;">
+                <i class="fas fa-arrow-left" style="margin-right: 10px; color: #007aff;" onclick="showBrands()"></i>
+                <h3 style="margin: 0; font-size: 16px; color: #8e8e93;">联想 - 选择设备型号</h3>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('lenovo-models')">
+                <div class="device-info">
+                    <div class="device-name">ThinkPad X1 Carbon</div>
+                    <div class="device-desc">轻薄商务笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('lenovo-models')">
+                <div class="device-info">
+                    <div class="device-name">ThinkPad T系列</div>
+                    <div class="device-desc">包括T14、T15等型号</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('lenovo-models')">
+                <div class="device-info">
+                    <div class="device-name">ThinkPad E系列</div>
+                    <div class="device-desc">包括E14、E15等型号</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('lenovo-models')">
+                <div class="device-info">
+                    <div class="device-name">IdeaPad系列</div>
+                    <div class="device-desc">包括各种IdeaPad型号</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('lenovo-models')">
+                <div class="device-info">
+                    <div class="device-name">其他型号</div>
+                    <div class="device-desc">其他未列出的型号</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+        </div>
+        
+        <!-- 戴尔型号选择（默认隐藏） -->
+        <div id="dell-models" class="model-selection" style="display: none;">
+            <div class="nav-action" style="display: flex; align-items: center; margin: 15px 0;">
+                <i class="fas fa-arrow-left" style="margin-right: 10px; color: #007aff;" onclick="showBrands()"></i>
+                <h3 style="margin: 0; font-size: 16px; color: #8e8e93;">戴尔 - 选择设备型号</h3>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('dell-models')">
+                <div class="device-info">
+                    <div class="device-name">XPS系列</div>
+                    <div class="device-desc">高端轻薄笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('dell-models')">
+                <div class="device-info">
+                    <div class="device-name">Inspiron系列</div>
+                    <div class="device-desc">主流家用笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('dell-models')">
+                <div class="device-info">
+                    <div class="device-name">Latitude系列</div>
+                    <div class="device-desc">商务办公笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('dell-models')">
+                <div class="device-info">
+                    <div class="device-name">其他型号</div>
+                    <div class="device-desc">其他未列出的型号</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+        </div>
+        
+        <!-- 惠普型号选择（默认隐藏） -->
+        <div id="hp-models" class="model-selection" style="display: none;">
+            <div class="nav-action" style="display: flex; align-items: center; margin: 15px 0;">
+                <i class="fas fa-arrow-left" style="margin-right: 10px; color: #007aff;" onclick="showBrands()"></i>
+                <h3 style="margin: 0; font-size: 16px; color: #8e8e93;">惠普 - 选择设备型号</h3>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('hp-models')">
+                <div class="device-info">
+                    <div class="device-name">Spectre系列</div>
+                    <div class="device-desc">高端轻薄笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('hp-models')">
+                <div class="device-info">
+                    <div class="device-name">Pavilion系列</div>
+                    <div class="device-desc">主流家用笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('hp-models')">
+                <div class="device-info">
+                    <div class="device-name">EliteBook系列</div>
+                    <div class="device-desc">商务办公笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('hp-models')">
+                <div class="device-info">
+                    <div class="device-name">其他型号</div>
+                    <div class="device-desc">其他未列出的型号</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+        </div>
+        
+        <!-- 华硕型号选择（默认隐藏） -->
+        <div id="asus-models" class="model-selection" style="display: none;">
+            <div class="nav-action" style="display: flex; align-items: center; margin: 15px 0;">
+                <i class="fas fa-arrow-left" style="margin-right: 10px; color: #007aff;" onclick="showBrands()"></i>
+                <h3 style="margin: 0; font-size: 16px; color: #8e8e93;">华硕 - 选择设备型号</h3>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('asus-models')">
+                <div class="device-info">
+                    <div class="device-name">ZenBook系列</div>
+                    <div class="device-desc">轻薄高端笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('asus-models')">
+                <div class="device-info">
+                    <div class="device-name">VivoBook系列</div>
+                    <div class="device-desc">主流家用笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('asus-models')">
+                <div class="device-info">
+                    <div class="device-name">ROG系列</div>
+                    <div class="device-desc">游戏笔记本</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('asus-models')">
+                <div class="device-info">
+                    <div class="device-name">其他型号</div>
+                    <div class="device-desc">其他未列出的型号</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+        </div>
+        
+        <!-- 其他品牌型号选择（默认隐藏） -->
+        <div id="other-models" class="model-selection" style="display: none;">
+            <div class="nav-action" style="display: flex; align-items: center; margin: 15px 0;">
+                <i class="fas fa-arrow-left" style="margin-right: 10px; color: #007aff;" onclick="showBrands()"></i>
+                <h3 style="margin: 0; font-size: 16px; color: #8e8e93;">其他品牌 - 选择设备型号</h3>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('other-models')">
+                <div class="device-info">
+                    <div class="device-name">宏碁 Acer</div>
+                    <div class="device-desc">包括Swift、Aspire等系列</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('other-models')">
+                <div class="device-info">
+                    <div class="device-name">微星 MSI</div>
+                    <div class="device-desc">包括游戏本和创作本系列</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('other-models')">
+                <div class="device-info">
+                    <div class="device-name">神舟</div>
+                    <div class="device-desc">包括战神、优雅等系列</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="showMotherboardOptions('other-models')">
+                <div class="device-info">
+                    <div class="device-name">其他型号</div>
+                    <div class="device-desc">其他未列出的品牌型号</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+        </div>
+        
+        <!-- 主板类型选择（默认隐藏） -->
+        <div id="motherboard-options" style="display: none;">
+            <div class="nav-action" style="display: flex; align-items: center; margin: 15px 0;">
+                <i class="fas fa-arrow-left" style="margin-right: 10px; color: #007aff;" onclick="backToModels()"></i>
+                <h3 style="margin: 0; font-size: 16px; color: #8e8e93;">选择主板类型</h3>
+            </div>
+            
+            <div class="device-option" onclick="goToStepGuide('Intel主板')">
+                <div class="device-info">
+                    <div class="device-name">Intel主板</div>
+                    <div class="device-desc">搭载Intel芯片组的主板</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="goToStepGuide('AMD主板')">
+                <div class="device-info">
+                    <div class="device-name">AMD主板</div>
+                    <div class="device-desc">搭载AMD芯片组的主板</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+            
+            <div class="device-option" onclick="goToStepGuide('不确定')">
+                <div class="device-info">
+                    <div class="device-name">不确定</div>
+                    <div class="device-desc">不确定主板类型</div>
+                </div>
+                <i class="fas fa-chevron-right" style="color: #c7c7cc;"></i>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 当前选择的型号区域ID
+        let currentModelSection = '';
+        // 用户选择的设备信息
+        let selectedBrand = '';
+        let selectedModel = '';
+        
+        // 显示品牌选择
+        function showBrands() {
+            document.getElementById('brand-selection').style.display = 'block';
+            
+            // 隐藏所有型号选择区域
+            const modelSections = document.querySelectorAll('.model-selection');
+            modelSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // 隐藏主板选择
+            document.getElementById('motherboard-options').style.display = 'none';
+        }
+        
+        // 显示特定品牌的型号选择
+        function showModels(modelSectionId) {
+            // 保存选择的品牌
+            selectedBrand = getBrandNameFromId(modelSectionId);
+            
+            // 隐藏品牌选择
+            document.getElementById('brand-selection').style.display = 'none';
+            
+            // 隐藏所有型号选择区域
+            const modelSections = document.querySelectorAll('.model-selection');
+            modelSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // 显示指定的型号选择区域
+            document.getElementById(modelSectionId).style.display = 'block';
+            
+            // 记录当前选择的型号区域
+            currentModelSection = modelSectionId;
+        }
+        
+        // 根据ID获取品牌名称
+        function getBrandNameFromId(id) {
+            switch(id) {
+                case 'lenovo-models': return '联想 ThinkPad/IdeaPad';
+                case 'dell-models': return '戴尔 Dell';
+                case 'hp-models': return '惠普 HP';
+                case 'asus-models': return '华硕 ASUS';
+                case 'other-models': return '其他品牌';
+                default: return '未知品牌';
+            }
+        }
+        
+        // 显示主板选择
+        function showMotherboardOptions(fromModelSection) {
+            // 保存选择的型号
+            selectedModel = getSelectedModel(fromModelSection);
+            
+            // 隐藏所有型号选择区域
+            const modelSections = document.querySelectorAll('.model-selection');
+            modelSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // 显示主板选择
+            document.getElementById('motherboard-options').style.display = 'block';
+            
+            // 记录当前选择的型号区域
+            currentModelSection = fromModelSection;
+        }
+        
+        // 获取用户选择的型号
+        function getSelectedModel(modelSectionId) {
+            // 这里简化处理，实际应用中应该获取用户点击的具体型号
+            const modelElement = event.currentTarget.querySelector('.device-name');
+            return modelElement ? modelElement.textContent : '未知型号';
+        }
+        
+        // 返回到型号选择
+        function backToModels() {
+            // 隐藏主板选择
+            document.getElementById('motherboard-options').style.display = 'none';
+            
+            // 显示之前的型号选择区域
+            if (currentModelSection) {
+                document.getElementById(currentModelSection).style.display = 'block';
+            } else {
+                // 如果没有记录，则返回品牌选择
+                showBrands();
+            }
+        }
+        
+        // 跳转到步骤指导页面，并传递设备信息
+        function goToStepGuide(motherboardType) {
+            const params = new URLSearchParams();
+            params.append('brand', encodeURIComponent(selectedBrand));
+            params.append('model', encodeURIComponent(selectedModel));
+            params.append('motherboard', encodeURIComponent(motherboardType));
+            
+            window.location.href = `step-guide-1.html?${params.toString()}`;
+        }
+    </script>
+</body>
+</html> 

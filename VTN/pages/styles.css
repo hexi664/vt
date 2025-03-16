@@ -1,0 +1,220 @@
+/* 通用样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 状态栏样式 */
+.status-bar {
+    height: 44px;
+    background-color: #000;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    font-size: 14px;
+}
+
+.status-bar .time {
+    font-weight: 600;
+}
+
+.status-bar .icons {
+    display: flex;
+    gap: 5px;
+}
+
+/* 导航栏样式 */
+.nav-bar {
+    height: 50px;
+    background-color: #fff;
+    border-bottom: 1px solid #e1e4e8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.nav-bar .title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* 主内容区域 */
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    padding-bottom: 30px; /* 增加底部内边距，替代原来的底部导航栏空间 */
+}
+
+/* 底部导航栏样式 - 保留但不使用 */
+.tab-bar {
+    display: none; /* 隐藏底部导航栏 */
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    background-color: #007aff;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+}
+
+.btn-secondary {
+    background-color: #f2f2f7;
+    color: #007aff;
+}
+
+/* 卡片样式 */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 设备选择项 */
+.device-option {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: white;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.device-option img {
+    width: 48px;
+    height: 48px;
+    margin-right: 16px;
+    object-fit: contain;
+}
+
+.device-option .device-info {
+    flex: 1;
+}
+
+.device-option .device-name {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.device-option .device-desc {
+    color: #8e8e93;
+    font-size: 14px;
+}
+
+/* 步骤指导样式 */
+.step-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.step-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.step-description {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.step-navigation {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 高亮标记 */
+.highlight {
+    border: 3px solid #ff3b30;
+    border-radius: 8px;
+    box-shadow: 0 0 0 2px rgba(255, 59, 48, 0.3);
+}
+
+/* 相机识别界面 */
+.camera-view {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.camera-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.camera-button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.camera-inner {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+}
+
+/* 完成页样式 */
+.completion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.completion-icon {
+    font-size: 80px;
+    color: #34c759;
+    margin-bottom: 20px;
+}
+
+.completion-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.completion-message {
+    color: #8e8e93;
+    margin-bottom: 30px;
+} 

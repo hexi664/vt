@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VT开启助手 - 步骤2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="time">14:33</div>
+        <div class="icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+    
+    <!-- 导航栏 -->
+    <div class="nav-bar">
+        <div><i class="fas fa-arrow-left" onclick="goBack()"></i></div>
+        <div class="title">步骤 2/5</div>
+        <div><i class="fas fa-ellipsis-v"></i></div>
+    </div>
+    
+    <!-- 主内容 -->
+    <div class="content">
+        <div class="step-container">
+            <!-- 设备信息卡片 -->
+            <div class="card" id="device-info-card" style="margin-bottom: 20px; background-color: #f8f9fa; border-left: 4px solid #007aff;">
+                <h3 style="margin-top: 0; margin-bottom: 10px;">您的设备信息</h3>
+                <p id="selected-device-info">正在为您的设备提供VT开启指南。</p>
+            </div>
+            
+            <h2 style="margin-bottom: 16px;">在BIOS中找到虚拟化选项</h2>
+            
+            <img src="https://images.unsplash.com/photo-1555626906-fcf10d6851b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="BIOS界面" class="step-image">
+            
+            <div class="step-description">
+                <p>在BIOS界面中，虚拟化技术选项通常位于以下菜单中（根据您的电脑品牌可能有所不同）：</p>
+                <ul style="padding-left: 20px; margin-bottom: 16px;">
+                    <li><strong>高级设置</strong> (Advanced)</li>
+                    <li><strong>CPU配置</strong> (CPU Configuration)</li>
+                    <li><strong>系统配置</strong> (System Configuration)</li>
+                    <li><strong>安全</strong> (Security)</li>
+                </ul>
+                
+                <p>寻找以下名称的选项（根据品牌和型号可能有所不同）：</p>
+                <ul style="padding-left: 20px;">
+                    <li>Intel Virtualization Technology (Intel VT)</li>
+                    <li>VT-x</li>
+                    <li>AMD-V</li>
+                    <li>SVM Mode</li>
+                    <li>Virtualization</li>
+                </ul>
+            </div>
+            
+            <div class="card" style="background-color: #fff9f2; border-left: 4px solid #ff9500; margin-top: 16px;">
+                <p style="margin: 0;"><i class="fas fa-exclamation-triangle" style="color: #ff9500;"></i> <strong>注意：</strong>BIOS界面中的选项名称和位置可能因品牌和型号而异。如果找不到，可以使用拍照识别功能帮助您定位。</p>
+            </div>
+            
+            <div class="step-navigation">
+                <button class="btn btn-secondary" style="width: auto;" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> 上一步
+                </button>
+                <button class="btn" style="width: auto;" onclick="goToCamera()">
+                    拍照识别 <i class="fas fa-camera"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 悬浮拍照按钮 -->
+    <div style="position: fixed; bottom: 30px; right: 20px; z-index: 100;">
+        <a href="javascript:void(0)" onclick="goToCamera()" style="width: 56px; height: 56px; border-radius: 28px; background-color: #007aff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);">
+            <i class="fas fa-camera" style="color: white; font-size: 24px;"></i>
+        </a>
+    </div>
+    
+    <script>
+        // 从URL参数获取设备信息
+        function getDeviceInfoFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const brand = urlParams.get('brand') || '未指定品牌';
+            const model = urlParams.get('model') || '未指定型号';
+            const motherboard = urlParams.get('motherboard') || '未指定主板';
+            
+            return {
+                brand: decodeURIComponent(brand),
+                model: decodeURIComponent(model),
+                motherboard: decodeURIComponent(motherboard)
+            };
+        }
+        
+        // 显示设备信息
+        function displayDeviceInfo() {
+            const deviceInfo = getDeviceInfoFromUrl();
+            const deviceInfoElement = document.getElementById('selected-device-info');
+            
+            if (deviceInfo.brand !== '未指定品牌' || deviceInfo.model !== '未指定型号' || deviceInfo.motherboard !== '未指定主板') {
+                deviceInfoElement.innerHTML = `
+                    <strong>品牌:</strong> ${deviceInfo.brand}<br>
+                    <strong>型号:</strong> ${deviceInfo.model}<br>
+                    <strong>主板类型:</strong> ${deviceInfo.motherboard}
+                `;
+            } else {
+                // 如果没有设备信息，隐藏设备信息卡片
+                document.getElementById('device-info-card').style.display = 'none';
+            }
+        }
+        
+        // 返回上一步，并传递设备信息
+        function goBack() {
+            const deviceInfo = getDeviceInfoFromUrl();
+            const params = new URLSearchParams();
+            
+            if (deviceInfo.brand !== '未指定品牌') {
+                params.append('brand', encodeURIComponent(deviceInfo.brand));
+            }
+            if (deviceInfo.model !== '未指定型号') {
+                params.append('model', encodeURIComponent(deviceInfo.model));
+            }
+            if (deviceInfo.motherboard !== '未指定主板') {
+                params.append('motherboard', encodeURIComponent(deviceInfo.motherboard));
+            }
+            
+            const queryString = params.toString();
+            window.location.href = `step-guide-1.html${queryString ? '?' + queryString : ''}`;
+        }
+        
+        // 跳转到拍照识别页面，并传递设备信息
+        function goToCamera() {
+            const deviceInfo = getDeviceInfoFromUrl();
+            const params = new URLSearchParams();
+            
+            if (deviceInfo.brand !== '未指定品牌') {
+                params.append('brand', encodeURIComponent(deviceInfo.brand));
+            }
+            if (deviceInfo.model !== '未指定型号') {
+                params.append('model', encodeURIComponent(deviceInfo.model));
+            }
+            if (deviceInfo.motherboard !== '未指定主板') {
+                params.append('motherboard', encodeURIComponent(deviceInfo.motherboard));
+            }
+            
+            const queryString = params.toString();
+            window.location.href = `camera-recognition.html${queryString ? '?' + queryString : ''}`;
+        }
+        
+        // 页面加载时显示设备信息
+        window.onload = displayDeviceInfo;
+    </script>
+</body>
+</html> 

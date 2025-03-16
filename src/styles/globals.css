@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-background text-text-primary min-h-screen;
+  }
+}
+
+@layer components {
+  .status-bar {
+    @apply h-11 bg-black text-white flex justify-between items-center px-4 text-sm;
+  }
+  
+  .nav-bar {
+    @apply h-12 bg-white border-b border-gray-200 flex justify-between items-center px-4;
+  }
+  
+  .nav-title {
+    @apply text-lg font-semibold;
+  }
+  
+  .content {
+    @apply flex-1 p-5 overflow-y-auto pb-8;
+  }
+  
+  .btn {
+    @apply inline-block bg-primary text-white py-3 px-6 rounded-xl font-semibold text-center my-2.5 border-none w-full;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-primary;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl p-4 mb-4 shadow-sm;
+  }
+  
+  .device-option {
+    @apply flex items-center p-4 rounded-xl bg-white mb-3 shadow-sm;
+  }
+  
+  .step-container {
+    @apply flex flex-col h-full;
+  }
+  
+  .step-image {
+    @apply w-full h-auto rounded-xl mb-5;
+  }
+  
+  .step-description {
+    @apply mb-5 leading-relaxed;
+  }
+  
+  .step-navigation {
+    @apply mt-auto flex justify-between;
+  }
+  
+  .highlight {
+    @apply border-2 border-red-500 rounded-lg shadow;
+  }
+  
+  .camera-view {
+    @apply relative w-full h-[60vh] bg-black flex items-center justify-center overflow-hidden;
+  }
+  
+  .camera-controls {
+    @apply absolute bottom-5 left-0 right-0 flex justify-center;
+  }
+  
+  .camera-button {
+    @apply w-[70px] h-[70px] rounded-full bg-white flex items-center justify-center shadow-md;
+  }
+  
+  .camera-inner {
+    @apply w-[60px] h-[60px] rounded-full border-3 border-gray-300;
+  }
+  
+  .completion-container {
+    @apply flex flex-col items-center justify-center h-full text-center p-5;
+  }
+  
+  .completion-icon {
+    @apply text-[80px] text-green-500 mb-5;
+  }
+  
+  .completion-title {
+    @apply text-2xl font-semibold mb-3;
+  }
+  
+  .completion-message {
+    @apply text-text-secondary mb-8;
+  }
+} 

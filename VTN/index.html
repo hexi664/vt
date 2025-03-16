@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VT开启助手 - 原型展示</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+        }
+        .prototype-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .phone-frame {
+            width: 390px;
+            height: 844px;
+            background-color: white;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin: 20px;
+            border: 10px solid #1a1a1a;
+        }
+        .phone-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .prototype-title {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">VT开启助手 - 原型展示</h1>
+        
+        <div class="prototype-container flex flex-wrap justify-center">
+            <div class="flex flex-col items-center">
+                <div class="phone-frame">
+                    <iframe src="pages/welcome.html"></iframe>
+                </div>
+                <div class="prototype-title">欢迎页</div>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <div class="phone-frame">
+                    <iframe src="pages/device-selection.html"></iframe>
+                </div>
+                <div class="prototype-title">设备选择页</div>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <div class="phone-frame">
+                    <iframe src="pages/step-guide-1.html"></iframe>
+                </div>
+                <div class="prototype-title">步骤指导页 1</div>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <div class="phone-frame">
+                    <iframe src="pages/step-guide-2.html"></iframe>
+                </div>
+                <div class="prototype-title">步骤指导页 2</div>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <div class="phone-frame">
+                    <iframe src="pages/camera-recognition.html"></iframe>
+                </div>
+                <div class="prototype-title">拍照识别页</div>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <div class="phone-frame">
+                    <iframe src="pages/recognition-result.html"></iframe>
+                </div>
+                <div class="prototype-title">识别结果页</div>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <div class="phone-frame">
+                    <iframe src="pages/completion.html"></iframe>
+                </div>
+                <div class="prototype-title">完成页</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

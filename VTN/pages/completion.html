@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VT开启助手 - 完成</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="time">14:36</div>
+        <div class="icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+    
+    <!-- 导航栏 -->
+    <div class="nav-bar">
+        <div><i class="fas fa-arrow-left" onclick="goBack()"></i></div>
+        <div class="title">设置完成</div>
+        <div><i class="fas fa-ellipsis-v"></i></div>
+    </div>
+    
+    <!-- 主内容 -->
+    <div class="content">
+        <div class="completion-container">
+            <!-- 设备信息卡片 -->
+            <div class="card" id="device-info-card" style="width: 100%; text-align: left; margin-bottom: 20px; background-color: #f8f9fa; border-left: 4px solid #007aff;">
+                <h3 style="margin-top: 0; margin-bottom: 10px;">您的设备信息</h3>
+                <p id="selected-device-info">VT功能已成功开启。</p>
+            </div>
+            
+            <div class="completion-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <div class="completion-title">
+                恭喜！VT功能已成功开启
+            </div>
+            
+            <div class="completion-message">
+                您的设备现在已经开启了虚拟化技术功能，可以更好地运行虚拟机、安卓模拟器等需要VT支持的应用程序。
+            </div>
+            
+            <div class="card" style="width: 100%; text-align: left; margin-bottom: 30px;">
+                <h3 style="margin-top: 0; margin-bottom: 10px;">验证VT是否已开启</h3>
+                <p>您可以通过以下方式验证VT是否已成功开启：</p>
+                <ol style="padding-left: 20px; margin-bottom: 0;">
+                    <li>在Windows中按下Win+R组合键</li>
+                    <li>输入"msinfo32"并回车</li>
+                    <li>在系统信息窗口中，查找"虚拟化已启用"项</li>
+                    <li>如果显示"是"，则表示VT已成功开启</li>
+                </ol>
+            </div>
+            
+            <button class="btn" onclick="window.location.href='welcome.html'">
+                返回首页
+            </button>
+            
+            <button class="btn btn-secondary" style="margin-top: 10px;">
+                分享给朋友
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // 从URL参数获取设备信息
+        function getDeviceInfoFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const brand = urlParams.get('brand') || '未指定品牌';
+            const model = urlParams.get('model') || '未指定型号';
+            const motherboard = urlParams.get('motherboard') || '未指定主板';
+            
+            return {
+                brand: decodeURIComponent(brand),
+                model: decodeURIComponent(model),
+                motherboard: decodeURIComponent(motherboard)
+            };
+        }
+        
+        // 显示设备信息
+        function displayDeviceInfo() {
+            const deviceInfo = getDeviceInfoFromUrl();
+            const deviceInfoElement = document.getElementById('selected-device-info');
+            
+            if (deviceInfo.brand !== '未指定品牌' || deviceInfo.model !== '未指定型号' || deviceInfo.motherboard !== '未指定主板') {
+                deviceInfoElement.innerHTML = `
+                    <strong>品牌:</strong> ${deviceInfo.brand}<br>
+                    <strong>型号:</strong> ${deviceInfo.model}<br>
+                    <strong>主板类型:</strong> ${deviceInfo.motherboard}<br>
+                    <strong>状态:</strong> <span style="color: #34c759; font-weight: 600;">VT功能已成功开启</span>
+                `;
+            } else {
+                // 如果没有设备信息，隐藏设备信息卡片
+                document.getElementById('device-info-card').style.display = 'none';
+            }
+        }
+        
+        // 返回上一步，并传递设备信息
+        function goBack() {
+            const deviceInfo = getDeviceInfoFromUrl();
+            const params = new URLSearchParams();
+            
+            if (deviceInfo.brand !== '未指定品牌') {
+                params.append('brand', encodeURIComponent(deviceInfo.brand));
+            }
+            if (deviceInfo.model !== '未指定型号') {
+                params.append('model', encodeURIComponent(deviceInfo.model));
+            }
+            if (deviceInfo.motherboard !== '未指定主板') {
+                params.append('motherboard', encodeURIComponent(deviceInfo.motherboard));
+            }
+            
+            const queryString = params.toString();
+            window.location.href = `recognition-result.html${queryString ? '?' + queryString : ''}`;
+        }
+        
+        // 页面加载时显示设备信息
+        window.onload = displayDeviceInfo;
+    </script>
+</body>
+</html> 
